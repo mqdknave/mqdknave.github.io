@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>初识知识图谱</title>
+      <link href="/2023/07/14/page/"/>
+      <url>/2023/07/14/page/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>知识图谱可用于搜索引擎的开发、人工智能领域。</p><h2 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h2><ol><li><p>语言：用python的话会比较方便操作</p></li><li><p>数据库：数据库大多使用neo4j，一种图形数据库，有可视化界面，可以看语句执行后的效果（目前使用社区版）</p></li><li><p>neo4j相关教程可以参考[neo4j手册](<a href="https://www.w3cschool.cn/neo4j/">neo4j 教程_w3cschool</a>)</p></li></ol><h2 id="增删改查（基本操作）"><a href="#增删改查（基本操作）" class="headerlink" title="增删改查（基本操作）"></a>增删改查（基本操作）</h2><p>入门neo4j数据库的话，初步要掌握增删改查</p><ul><li><p>增</p><pre><code>create (n:标签名 &#123;属性:，属性:&#125;)例子：create (n:person&#123;name:&quot;zangsan&quot;,age:20&#125;)</code></pre></li><li><p>删（删除某一实体）</p><pre><code>create (n:标签名 &#123;属性:，属性:&#125;)match (n:标签名 &#123;属性:，属性:&#125;) delete n</code></pre><p>例子：</p><pre><code>create (n:person&#123;name:&quot;zangsan&quot;,age:20&#125;)</code></pre><pre><code>match (n:person&#123;name:&quot;zangsan&quot;&#125;) delete n</code></pre></li><li><p>删（关系</p><pre><code>match(m:person（标签名）&#123;name（属性）:&quot;lisi&quot;,age（属性）:&quot;19&quot;&#125;)-[a:关系名]-&gt;(n:person&#123;name:&quot;zhangsan&quot;,age:&quot;20&quot;&#125;) delete a</code></pre><p>注意：想要删除某个实体要先删除其与另外实体之间的关系，上面的n、m、a等均为代指，无具体规则，-&gt;即为实际操作语句中的→箭头。</p></li><li><p>改（加标签）</p><pre><code>match (k:person) where id(i)=值 set k:新增标签名 return k</code></pre></li><li><p>改（加属性）</p><pre><code>match (k:person) where id(i)=值 set k.属性名=值 return k</code></pre></li><li><p>改（修改属性）</p><pre><code>match (k:person) where id(i)=值 set k.属性名=改后值 return k</code></pre></li><li><p>查（实际用的最多，较复杂建议多参考手册和neo4j提供的例子）</p><pre><code>match (n:person)-[:关系名]-&gt;(m:person) return n,m上述查的操作还是比较简单的</code></pre></li><li><p>快速清除数据库（删除所有实体和关系）</p><pre><code>MATCH(n)DETACH DLEETE n </code></pre></li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>新手小白的博客</title>
       <link href="/2023/07/06/%E6%96%B0%E6%89%8B%E5%B0%8F%E7%99%BD%E7%9A%84%E5%8D%9A%E5%AE%A2-1/"/>
       <url>/2023/07/06/%E6%96%B0%E6%89%8B%E5%B0%8F%E7%99%BD%E7%9A%84%E5%8D%9A%E5%AE%A2-1/</url>
